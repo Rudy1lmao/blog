@@ -1,117 +1,232 @@
 /* kod ogólny*/
-*{
+* {
     font-family: 'Source Sans Pro', sans-serif;
+    box-sizing: border-box;
 }
-body{
+
+body {
     margin: 0;
     padding: 0 0;
 }
+
 /* kod nawigacji*/
-.logo{
+.logo {
     font-weight: 600;
 }
-nav{
+
+nav {
     width: 100%;
     height: 60px;
     background-color: rgba(49, 163, 49, 0.849);
     color: white;
     font-weight: 400;
-    backdrop-filter: saturate(180%) blur (20px); /*takie rozmycie śmieszne*/
+    backdrop-filter: saturate(100%) blur (20px);
+    /*takie rozmycie śmieszne*/
     position: sticky;
     top: 0px;
     /* przykleja do góry */
 }
-a{
+
+a {
     color: white;
-    text-decoration: none; /*usunięcie podkreślenia i fioletowego na linkach*/
+    text-decoration: none;
+    /*usunięcie podkreślenia i fioletowego na linkach*/
 }
-.wrap{
+
+.wrap {
     max-width: 1000px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     line-height: 60px;
 }
-.item-wrap{
+
+.item-wrap {
     display: flex;
 }
+
 /* optymalizacja w trybie mobilnym  */
-@media(max-width: 500px){
-    .item-wrap{
+@media(max-width: 500px) {
+    .item-wrap {
         display: none;
     }
 }
-.item{
-    padding: 0 30px; /* 0=góra dół; 30=prawo lewo*/
+
+.item {
+    padding: 0 30px;
+    /* 0=góra dół; 30=prawo lewo*/
 }
+
 /* główny obrazek*/
-header{
+header {
     width: 100%;
     height: 550px;
-    background-image: url("pic.jpg"); /*wstawienie obrazka*/
+    background-image: url("pic.jpg");
+    /*wstawienie obrazka*/
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top;
     margin-top: -60px;
 }
+
 /* artykuły */
-main{
+main {
     max-width: 1000px;
     margin: 0 auto;
 }
-main>h2{
+
+main>h2 {
     text-align: center;
 }
-.postlist{
-    display: grid; /* wyświetla w siatce*/
+
+.postlist {
+    display: grid;
+    /* wyświetla w siatce*/
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 24px;
 }
+
 /* optymalizacja w trybie mobilnym */
-@media(max-width: 500px){
-    .postlist{
-        grid-template-columns: repeat(1,1fr);
+@media(max-width: 500px) {
+    .postlist {
+        grid-template-columns: repeat(1, 1fr);
     }
 }
-@media(max-width: 700px) and (min-width: 500px){
-    .postlist{
-        grid-template-columns: repeat(2,1fr);
+
+@media(max-width: 700px) and (min-width: 500px) {
+    .postlist {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
-article>img{ /* coś jest w czymś, styluje img które są w article, styluje coś w czymś*/
+
+article>img {
+    /* coś jest w czymś, styluje img które są w article, styluje coś w czymś*/
     width: 100%;
     height: 170px;
     object-fit: cover;
 }
-article{
-    box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.75);
+
+article {
+    box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.75);
     height: 100%;
 }
-.text>.category{
+
+.text>.category {
     color: rgba(25, 25, 179, 0.966);
     font-weight: 800;
 }
-.text>h3{
+
+.text>h3 {
     color: rgb(32, 32, 32);
     font-size: 20px;
     margin: 8px 0 20px;
 }
-.authortext>p{
+
+.authortext>p {
     color: black;
     margin: 0;
 }
-.author{
+
+.author {
     display: flex;
 }
-.author>img{
+
+.author>img {
     width: 48px;
     height: 48px;
-    border-radius: 50%; /*zaokrąglenie zdjęcia*/
+    border-radius: 50%;
+    /*zaokrąglenie zdjęcia*/
     margin-right: 16px;
 }
-.text{
+
+.text {
     padding: 12px 24px 24px 24px;
 }
-.text>.category{
+
+.text>.category {
     margin: 0;
+}
+
+/* sekcja kontaktowa */
+section {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+section>h2 {
+    text-align: center;
+    width: 100%;
+}
+
+section>img {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    margin-right: 16px;
+    box-shadow: 0 10px 15px -3px #00000050;
+}
+@media(max-width:600px){
+    section>img{
+        margin: 0 auto;
+        margin-bottom: 25px;
+    }
+}
+
+section>form {
+    width: calc(100% - 216px);
+}
+/* optymalizacja trybu mobilnego */
+@media(max-width: 600px){
+    section>form {
+        width: 100%;
+    }  
+}
+form>input,
+form>textarea {
+    width: 100%;
+    border: none;
+    box-shadow: 0 10px 15px -3px #0000001a;   
+    margin-bottom: 20px;
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 3px;
+}
+
+form>input[type=submit] {
+    width: 15%;
+    background-color: rgb(20, 105, 184);
+    color: white;
+    font-weight: 600;
+    /* wyświetla łapke po najechaniu */
+    cursor: pointer;
+}
+@media(max-width: 600px){
+    form>input[type=submit]{
+        width: 100%;
+    }
+}
+footer{
+    background-color: rgb(19, 19, 19);
+    color: white;
+    text-align: center;
+    height: 40px;
+    width: 100%;
+    padding: 10px;
+    font-weight: 600;
+}
+/* artykuł */
+.artykuł{
+    max-width: 1000px;
+    margin: 0 auto;
+    min-height: calc(100vh - 116px);
+}
+.artykuł>img{
+    width: 100%;
+    height: 400px;
+}
+.artykuł>.data{
+    text-align: center;
 }
